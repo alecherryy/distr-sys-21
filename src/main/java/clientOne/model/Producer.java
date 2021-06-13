@@ -1,10 +1,6 @@
 package clientOne.model;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Enumeration;
-import java.util.concurrent.BlockingQueue;
 
 /**
  * This class represents a Producer that implements
@@ -44,7 +40,9 @@ public class Producer implements Runnable {
         try (BufferedReader br = new BufferedReader(this.file)) {
             while (br.ready()) {
                 // ignore empty lines
-                buffer.buffer.put(br.readLine());
+                if (!br.readLine().isEmpty()) {
+                    buffer.buffer.put(br.readLine());
+                }
             }
             buffer.done = true;
         } catch (IOException e) {

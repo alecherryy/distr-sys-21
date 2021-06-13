@@ -6,7 +6,7 @@ of the classes and packages I created.
 
 
 ### Server
-The `Server` is built using Java's HTTP Servlet; it performs some basic operations such as validating the URL parameters.
+The `Server` is built using Java's HTTP Server; it performs some basic operations such as validating the URL parameters.
 
 ### Client
 The `Client` class only features a handful of lines of code. Its job is to request input from the user and instantiate the controller. 

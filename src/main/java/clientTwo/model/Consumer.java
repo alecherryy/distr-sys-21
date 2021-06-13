@@ -46,7 +46,7 @@ public class Consumer implements Runnable {
                 // start timer
                 long start = System.nanoTime();
                 // send data to server
-                HttpResponse res = new Request(data).send();
+                HttpResponse res = new Request("POST", data).send();
                 // check response status code
                 if (res.statusCode() == 200) {
                     // + 1 to success counter

@@ -2505,7 +2505,7 @@ performance versus ease-of-use trade-off. Well see lots of these in this book
 27.
 28.	       }
 29.	} }
-    Figure 44 JEE Servlet Example
+    Figure 44 JEE Server Example
   State Management
 
    State management is a tricky, nuanced topic. The bottom line is that service implementations
@@ -2611,7 +2611,7 @@ GoLang a service can be created by incorporating the net/http package. These
 implementations are much more minimal and lightweight than JEE and are typically classified
 are Web application frameworks. In Java, the Apache Tomcat server  is a somewhat equivalent
 technology. Tomcat is open source implementation of a subset of the JEE platform, namely the
-Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies.
+Java Server, JavaServer Pages, Java Expression Language and Java WebSocket technologies.
    Figure 46 depicts a simplified view of the anatomy of Tomcat. Tomcat implements a servlet
 container, which is an execution environment for application-defined servlets. Application
 defined Servlets are loaded into this container, which provides lifecycle management and a
@@ -6015,7 +6015,7 @@ performance versus ease-of-use trade-off. Well see lots of these in this book
 27.
 28.	       }
 29.	} }
-    Figure 44 JEE Servlet Example
+    Figure 44 JEE Server Example
   State Management
 
    State management is a tricky, nuanced topic. The bottom line is that service implementations
@@ -6121,7 +6121,7 @@ GoLang a service can be created by incorporating the net/http package. These
 implementations are much more minimal and lightweight than JEE and are typically classified
 are Web application frameworks. In Java, the Apache Tomcat server  is a somewhat equivalent
 technology. Tomcat is open source implementation of a subset of the JEE platform, namely the
-Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies.
+Java Server, JavaServer Pages, Java Expression Language and Java WebSocket technologies.
    Figure 46 depicts a simplified view of the anatomy of Tomcat. Tomcat implements a servlet
 container, which is an execution environment for application-defined servlets. Application
 defined Servlets are loaded into this container, which provides lifecycle management and a
@@ -9525,7 +9525,7 @@ performance versus ease-of-use trade-off. Well see lots of these in this book
 27.
 28.	       }
 29.	} }
-    Figure 44 JEE Servlet Example
+    Figure 44 JEE Server Example
   State Management
 
    State management is a tricky, nuanced topic. The bottom line is that service implementations
@@ -9631,7 +9631,7 @@ GoLang a service can be created by incorporating the net/http package. These
 implementations are much more minimal and lightweight than JEE and are typically classified
 are Web application frameworks. In Java, the Apache Tomcat server  is a somewhat equivalent
 technology. Tomcat is open source implementation of a subset of the JEE platform, namely the
-Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies.
+Java Server, JavaServer Pages, Java Expression Language and Java WebSocket technologies.
    Figure 46 depicts a simplified view of the anatomy of Tomcat. Tomcat implements a servlet
 container, which is an execution environment for application-defined servlets. Application
 defined Servlets are loaded into this container, which provides lifecycle management and a

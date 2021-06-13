@@ -1,10 +1,8 @@
 package clientOne.model;
 
-import clientTwo.model.Utils;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.io.IOException;
-import java.util.concurrent.BlockingQueue;
 
 /**
  * This class represents a Producer that implements
@@ -41,7 +39,7 @@ public class Consumer implements Runnable {
                 data = buffer.buffer.take();
 
                 // send data to server
-                int res = new Request(data).send();
+                int res = new Request("POST", "wordcount", data).send();
                 // check response status code
                 if (res == 200) {
                     // + 1 to success counter

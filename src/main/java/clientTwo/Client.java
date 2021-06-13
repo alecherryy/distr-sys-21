@@ -21,8 +21,8 @@ public class Client {
 
        in.close();
 
+        // instantiate Controller
         ClientController controller = new ClientController(file, threads);
-        // instantiate clientOne.controller
         controller.start();
     }
 }

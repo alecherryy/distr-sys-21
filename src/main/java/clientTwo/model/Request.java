@@ -10,19 +10,21 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.HashMap;
-import java.util.Locale;
 
 /**
  * This class represents an HTTP request. Each method can
  * be use to construct a new type of request.
  */
 public class Request {
+    private static String URL = "http://localhost:8080/app/textbody/";
     // define HTTP client
     private static final HttpClient HTTP_CLIENT = HttpClient.newBuilder()
             .version(HttpClient.Version.HTTP_1_1)
             .connectTimeout(Duration.ofMillis(10000))
             .build();
     private HttpRequest req;
+    private String type;
+    private String function;
 
     /**
      * Class constructor.
@@ -30,7 +32,36 @@ public class Request {
      * @param body of the HTTP request
      * @throws JsonProcessingException if the body format is invalid
      */
-    public Request(String body) throws JsonProcessingException {
+    public Request(String type, String function, String body) throws JsonProcessingException {
+        if (type.isEmpty() || function.isEmpty()) {
+            throw new IllegalArgumentException("One or more parameters are missing.");
+        }
+        this.type = type;
+        this.function = function;
+        // create new hash map
+        var values = new HashMap<String, String>() {{
+            put("message", body);
+        }};
+
+        // map key-value pairs
+        var mapper = new ObjectMapper();
+        String requestBody = mapper.writeValueAsString(values);
+
+        // call private method to build POST request
+        buildRequest(requestBody);
+    }
+
+    /**
+     * Overload class constructor.
+     *
+     * @param body of the HTTP request
+     * @throws JsonProcessingException if the body format is invalid
+     */
+    public Request(String type, String body) throws JsonProcessingException {
+        if (type.isEmpty()) {
+            throw new IllegalArgumentException("One or more parameters are missing.");
+        }
+        this.type = type;
         // create new hash map
         var values = new HashMap<String, String>() {{
             put("message", body);
@@ -64,10 +95,26 @@ public class Request {
      * @param body of the request
      */
     private void buildRequest(String body) {
-        this.req = HttpRequest.newBuilder()
-            .POST(HttpRequest.BodyPublishers.ofString(body))
-            .uri(URI.create("http://localhost:8080/app/textbody/wordcount"))
-            .setHeader("User-Agent", "BSDS Application")
-            .build();
+        HttpRequest.Builder builder = HttpRequest.newBuilder();
+        switch (this.type) {
+            case "GET":
+                // do something some day
+                break;
+            case "POST":
+                builder.POST(HttpRequest.BodyPublishers.ofString(body))
+                        .uri(URI.create(URL + function));
+                break;
+            case "PUT":
+                // do something some day
+                break;
+            case "DELETE":
+                // do something some day
+                break;
+            default:
+                // throw an error
+                break;
+        }
+        this.req = builder.setHeader("User-Agent", "BSDS Application")
+                .build();
     }
 }
